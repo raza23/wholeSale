@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
     # class UsersController < ApplicationController
         def index
-            
+
             @users = User.all
+            
             if @users
               render json: {
                 users: @users
