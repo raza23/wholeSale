@@ -6,6 +6,10 @@ function App() {
   return (
     <div className="App">
       <h1> App.js</h1>
+      <p>
+        {" "}
+        visit <a href="#anchor">here</a>{" "}
+      </p>
       <Navbar />
     </div>
   );

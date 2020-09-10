@@ -5,7 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-user1 = User.create(name:'Bob',user_type:'Patient',username: 'bob_test',email: 'bobbytest@gmail.com', password: 'bob')
+patient = Category.create(category_type: 'Patient')
+nurse = Category.create(category_type: 'Nurse')
+doctor = Category.create(category_type: 'Doctor')
+
+
+user1 = User.create(first_name:'Bob', last_name: 'Smith',category: patient,username: 'bob_test',email: 'bobbytest@gmail.com', password: 'bob_bob_bob')
 # !
 
 drug1 = Drug.create(name: 'Advil')
