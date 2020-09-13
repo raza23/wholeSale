@@ -11,4 +11,9 @@ class User < ApplicationRecord
     has_many :orders
     has_many :drugs,through: :orders 
     belongs_to :category
+
+    def name 
+        self.first_name + ' ' + self.last_name
+    end
+
 end
