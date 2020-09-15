@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  post '/login', to: 'auth#create'
+  post '/login', to: 'auth#UserCreate'
+  get '/profile', to: 'auth#UserProfile'
+
   delete '/logout', to: 'sessions#destroy'
   get '/logged_in', to: 'sessions#is_logged_in?'
   
