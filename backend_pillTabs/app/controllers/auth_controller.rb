@@ -4,7 +4,7 @@ class AuthController < ApplicationController
            
        
            def UserCreate
-               @user = User.find_by(username: user_login_params[:username])
+               @user = User.find_by(email: user_login_params[:email])
                byebug
                if @user && @user.authenticate(user_login_params[:password])
                    token = encode({user_id: @user.id})
@@ -31,7 +31,7 @@ class AuthController < ApplicationController
            
                private
            def user_login_params
-               params.require(:user).permit(:username, :password)
+               params.require(:user).permit(:email, :password)
            end
        
            
