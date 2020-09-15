@@ -1,0 +1,89 @@
+
+---
+ar_internal_metadata:
+  columns:
+  - key
+  - value
+  - created_at
+  - updated_at
+  records: 
+  - - environment
+    - development
+    - '2020-09-10 20:08:29.385129'
+    - '2020-09-10 20:08:29.385129'
+
+---
+categories:
+  columns:
+  - id
+  - category_type
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - Patient
+    - '2020-09-10 20:08:50.591583'
+    - '2020-09-10 20:08:50.591583'
+  - - 2
+    - Nurse
+    - '2020-09-10 20:08:50.594855'
+    - '2020-09-10 20:08:50.594855'
+  - - 3
+    - Doctor
+    - '2020-09-10 20:08:50.609177'
+    - '2020-09-10 20:08:50.609177'
+
+---
+drugs:
+  columns:
+  - id
+  - name
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - Advil
+    - '2020-09-10 20:08:50.815893'
+    - '2020-09-10 20:08:50.815893'
+
+---
+orders:
+  columns:
+  - id
+  - order_type
+  - user_id
+  - drug_id
+  - cost
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - One-Time
+    - '1'
+    - '1'
+    - 5
+    - '2020-09-10 20:08:50.824457'
+    - '2020-09-10 20:08:50.824457'
+
+---
+users:
+  columns:
+  - id
+  - first_name
+  - last_name
+  - category_id
+  - username
+  - email
+  - password_digest
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - Bob
+    - Smith
+    - '1'
+    - bob_test
+    - bobbytest@gmail.com
+    - "$2a$12$.DVEAE9Y8.1p..wgPBeK.O.QLMJ0qBa5wM38KxE60YlLIx0/2TR9."
+    - '2020-09-10 20:08:50.808659'
+    - '2020-09-10 20:08:50.808659'

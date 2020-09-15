@@ -1,24 +1,24 @@
 class ApplicationController < ActionController::API
   
-  skip_before_action :verify_authenticity_token
-  helper_method :login!, :logged_in?, :current_user, :authorized_user?, :logout!
-  
-
-
-def login!
-    session[:user_id] = @user.id
+  def secret_key
+      'm0d5'
   end
-def logged_in?
-    !!session[:user_id]
-  end
-def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
-  end
-def authorized_user?
-     @user == current_user
-   end
-def logout!
-     session.clear
-   end
 
+  def encode(payload)
+    # byebug
+      
+    
+    JWT.encode(payload,secret_key,'HS256')
+    # byebug
+    # jwt string: "eyJhbGciOiJIUzI1NiJ9.eyJiZWVmIjoic3RlYWsifQ._IBTHTLGX35ZJWTCcY30tLmwU9arwdpNVxtVU0NpAuI"
+  end
+ 
+  def decode(token)
+    
+    JWT.decode(token, secret_key,true,algorithm: 'HS256')[0]
+    # byebug
+    # JWT.decode => [{ "beef"=>"steak" }, { "alg"=>"HS256" }]
+    # [0] gives us the payload { "beef"=>"steak" }
+  end
 end
+

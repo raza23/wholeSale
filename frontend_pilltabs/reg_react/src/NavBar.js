@@ -12,14 +12,16 @@ class Navbar extends React.Component {
         variant="dark"
       >
         <ReactBootStrap.Navbar.Brand href="#home">
-          React-Bootstrap
+          PillTabs
         </ReactBootStrap.Navbar.Brand>
         <ReactBootStrap.Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <ReactBootStrap.Navbar.Collapse id="responsive-navbar-nav">
           <ReactBootStrap.Nav className="mr-auto">
-            <ReactBootStrap.Nav.Link href="#features">
-              Features
-            </ReactBootStrap.Nav.Link>
+            <NavLink exact to="/login">
+              <ReactBootStrap.Nav.Link href="#features">
+                Login
+              </ReactBootStrap.Nav.Link>
+            </NavLink>
             <ReactBootStrap.Nav.Link href="#pricing">
               Pricing
             </ReactBootStrap.Nav.Link>
