@@ -5,7 +5,7 @@ class AuthController < ApplicationController
        
            def UserCreate
                @user = User.find_by(email: user_login_params[:email])
-               byebug
+            #    byebug
                if @user && @user.authenticate(user_login_params[:password])
                    token = encode({user_id: @user.id})
                    
