@@ -10,6 +10,7 @@ class AuthController < ApplicationController
                    token = encode({user_id: @user.id})
                    
                    render json: { user: @user,message: 'success', token: token }, status: :accepted
+                # *   all this information is sent to the React app
                else
                    render json: {message: 'wrong'}, status: :unauthorized 
                end
