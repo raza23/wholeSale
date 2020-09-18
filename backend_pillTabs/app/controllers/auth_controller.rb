@@ -4,12 +4,13 @@ class AuthController < ApplicationController
            
        
            def UserCreate
-               @user = User.find_by(username: user_login_params[:username])
-               byebug
+               @user = User.find_by(email: user_login_params[:email])
+            #    byebug
                if @user && @user.authenticate(user_login_params[:password])
                    token = encode({user_id: @user.id})
                    
                    render json: { user: @user,message: 'success', token: token }, status: :accepted
+                # *   all this information is sent to the React app
                else
                    render json: {message: 'wrong'}, status: :unauthorized 
                end
@@ -31,7 +32,7 @@ class AuthController < ApplicationController
            
                private
            def user_login_params
-               params.require(:user).permit(:username, :password)
+               params.require(:user).permit(:email, :password)
            end
        
            
