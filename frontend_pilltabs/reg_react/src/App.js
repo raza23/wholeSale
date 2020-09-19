@@ -10,6 +10,7 @@ import {
 import Navbar from "./NavBar";
 import Login from "./Login";
 import Profile from "./Profile";
+import DoctorProfile from "./DoctorProfile";
 
 import "./App.css";
 
@@ -42,6 +43,7 @@ class App extends React.Component {
           .then(res => res.json())
           .then(data => {
             // debugger;
+
             this.onChangeUser(data.user_data);
           })
       ])
@@ -61,7 +63,9 @@ class App extends React.Component {
   };
 
   render() {
-    console.log(this.state);
+    console.log(this.state.currentUser);
+    // const doctor = this.state.currentUser.category_id === "3";
+    // console.log(doctor);
     return (
       <Router>
         <div className="App">
@@ -82,6 +86,7 @@ class App extends React.Component {
                 );
               }}
             />
+
             <Route
               exact
               path="/profile"
@@ -96,6 +101,10 @@ class App extends React.Component {
                   />
                 );
               }}
+            />
+            <Route
+              path="/doctorprofile"
+              render={() => <DoctorProfile user={this.state.currentUser} />}
             />
           </Switch>
         </div>

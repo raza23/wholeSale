@@ -31,8 +31,12 @@ class Login extends React.Component {
         localStorage.setItem("jwt", data.token);
 
         this.props.onChangeUser(data.user);
-        debugger;
-        this.props.history.push("/profile");
+        // debugger;
+        if (data.category.category_type !== "Patient") {
+          this.props.history.push("/doctorprofile");
+        } else {
+          this.props.history.push("/profile");
+        }
         // /home
       });
   };
