@@ -4,6 +4,16 @@ import { Link, NavLink, withRouter } from "react-router-dom";
 
 class Navbar extends React.Component {
   render() {
+    let logout = e => {
+      e.preventDefault();
+      localStorage.removeItem("jwt");
+      debugger;
+      this.props.onChangeUser("null");
+      window.location.reload();
+      // this.props.history.push("/login");
+      // history.push("login");
+    };
+    console.log(this.props);
     return (
       <ReactBootStrap.Navbar
         collapseOnSelect
@@ -12,16 +22,13 @@ class Navbar extends React.Component {
         variant="dark"
       >
         <ReactBootStrap.Navbar.Brand href="#home">
-          PillTabs
+          <NavLink exact to="/login">
+            PillTabs
+          </NavLink>
         </ReactBootStrap.Navbar.Brand>
         <ReactBootStrap.Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <ReactBootStrap.Navbar.Collapse id="responsive-navbar-nav">
           <ReactBootStrap.Nav className="mr-auto">
-            <NavLink exact to="/login">
-              <ReactBootStrap.Nav.Link href="#features">
-                Login
-              </ReactBootStrap.Nav.Link>
-            </NavLink>
             <ReactBootStrap.Nav.Link href="#pricing">
               Pricing
             </ReactBootStrap.Nav.Link>
@@ -48,9 +55,17 @@ class Navbar extends React.Component {
             <ReactBootStrap.Nav.Link href="#deets">
               More deets
             </ReactBootStrap.Nav.Link>
-            <ReactBootStrap.Nav.Link eventKey={2} href="#memes">
-              Dank memes
-            </ReactBootStrap.Nav.Link>
+            {this.props.user !== null ? (
+              <NavLink exact to="/login" onClick={logout}>
+                <ReactBootStrap.Nav.Link>Logout</ReactBootStrap.Nav.Link>
+              </NavLink>
+            ) : (
+              <NavLink exact to="/login">
+                <ReactBootStrap.Nav.Link href="#features">
+                  Login
+                </ReactBootStrap.Nav.Link>
+              </NavLink>
+            )}
           </ReactBootStrap.Nav>
         </ReactBootStrap.Navbar.Collapse>
       </ReactBootStrap.Navbar>
@@ -58,4 +73,4 @@ class Navbar extends React.Component {
   }
 }
 
-export default Navbar;
+export default withRouter(Navbar);
