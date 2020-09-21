@@ -11,6 +11,7 @@ import Navbar from "./NavBar";
 import Login from "./Login";
 import Profile from "./Profile";
 import DoctorProfile from "./DoctorProfile";
+import Survey from "./Survey";
 
 import "./App.css";
 
@@ -106,6 +107,8 @@ class App extends React.Component {
               path="/doctorprofile"
               render={() => <DoctorProfile user={this.state.currentUser} />}
             />
+
+            <Route path="/survey" render={() => <Survey />} />
           </Switch>
         </div>
       </Router>
