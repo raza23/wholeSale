@@ -6,7 +6,7 @@ class UsersController < ApplicationController
             
             if @users
               render json: {
-                users: @users
+                users: @users,include: [:category]
               }
             else
               render json: {
