@@ -26,13 +26,13 @@ class App extends React.Component {
     drugs: []
   };
 
-  componentDidMount() {
+  async componentDidMount() {
     let token = localStorage.getItem("jwt");
     // console.log(token);
 
     if (token) {
       // debugger;
-      Promise.all([
+      await Promise.all([
         // fetch(opp_url),
         fetch(DRUGS_URL),
         fetch(ORDERS_URL),
@@ -104,11 +104,22 @@ class App extends React.Component {
               }}
             />
             <Route
+              exact
               path="/doctorprofile"
               render={() => <DoctorProfile user={this.state.currentUser} />}
             />
 
-            <Route path="/survey" render={() => <Survey />} />
+            <Route
+              exact
+              path="/survey"
+              render={() => {
+                return this.state.currentUser === null ? (
+                  <Redirect to="/survey" />
+                ) : (
+                  <Survey user={this.state.currentUser} />
+                );
+              }}
+            />
           </Switch>
         </div>
       </Router>
