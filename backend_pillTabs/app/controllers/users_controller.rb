@@ -28,11 +28,16 @@ class UsersController < ApplicationController
               }
             end
           end
+
+
+          def update
+            debugger
+          end
           
           def create
-            debugger
+            # debugger
             @user = User.create(user_params)
-            debugger
+            # debugger
             if @user.valid?
               # login!
               render json: {

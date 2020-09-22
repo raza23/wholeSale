@@ -40,6 +40,14 @@ ActiveRecord::Schema.define(version: 2020_09_10_193353) do
     t.string "username"
     t.string "email"
     t.string "password_digest"
+    t.integer "answer1", default: 1
+    t.integer "answer2", default: 1
+    t.integer "answer3", default: 1
+    t.integer "answer4", default: 1
+    t.integer "answer5", default: 1
+    t.integer "answer6", default: 1
+    t.integer "answer7", default: 1
+    t.integer "answer8", default: 1
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
