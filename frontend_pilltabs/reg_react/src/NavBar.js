@@ -52,8 +52,8 @@ class Navbar extends React.Component {
             </ReactBootStrap.NavDropdown>
           </ReactBootStrap.Nav>
           <ReactBootStrap.Nav>
-            <ReactBootStrap.Nav.Link href="#deets">
-              More deets
+            <ReactBootStrap.Nav.Link href="/survey">
+              Survey
             </ReactBootStrap.Nav.Link>
             {this.props.user !== null ? (
               <NavLink exact to="/login" onClick={logout}>

@@ -10,10 +10,14 @@ nurse = Category.create(category_type: 'Nurse')
 doctor = Category.create(category_type: 'Doctor')
 
 
-user1 = User.create(first_name:'Bob', last_name: 'Smith',category: patient,username: 'bob_test',email: 'bobbytest@gmail.com', password: 'bob_bob_bob')
+user1 = User.create(first_name:'Bob', last_name: 'Smith',category: patient,username: 'bob_test',email: 'bobbytest@gmail.com', password: 'bob_bob_bob',answer1: 2,answer2: 5, answer3:4,answer4: 7,answer5: 3)
+doctor1 = User.create(first_name:'Mario',last_name:'Luigi',category: doctor,username: 'drMario',email: 'mario@gmail.com',password: 'bowserSucks',answer1: 3,answer2: 9, answer3:3,answer4: 4,answer5: 1)
 # !
 
 drug1 = Drug.create(name: 'Advil')
+drug2 = Drug.create(name: 'Tylenol')
+
 
 
 order1 = Order.create(order_type: 'One-Time',user: user1,drug: drug1,cost: 5)
+order2 = Order.create(order_type: 'Subscription',user: user1,drug: drug2,cost: 10)

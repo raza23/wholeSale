@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import OrderItem from "./OrderItem";
 import DoctorProfile from "./DoctorProfile";
+import Survey from "./Survey";
 
 class Profile extends Component {
   render() {
@@ -36,6 +37,7 @@ class Profile extends Component {
           <ul className="header">
             <p>My Orders</p>
             <ul>{indOrders}</ul>
+            <Link to="/survey">My survey</Link>
           </ul>
           <div></div>
         </div>

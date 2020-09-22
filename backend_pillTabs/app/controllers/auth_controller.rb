@@ -9,7 +9,7 @@ class AuthController < ApplicationController
                if @user && @user.authenticate(user_login_params[:password])
                    token = encode({user_id: @user.id})
                    
-                   render json: { user: @user,message: 'success', token: token }, status: :accepted
+                   render json: { user: @user, category: @user.category,message: 'success', token: token }, status: :accepted
                 # *   all this information is sent to the React app
                else
                    render json: {message: 'wrong'}, status: :unauthorized 
