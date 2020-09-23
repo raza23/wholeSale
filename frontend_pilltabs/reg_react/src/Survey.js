@@ -20,7 +20,7 @@ class Survey extends Component {
     // debugger;
     fetch(`http://localhost:3001/users/${this.props.user.id}`, {
       method: "PATCH",
-      header: {
+      headers: {
         Authorization: `Bearer ${localStorage.jwt}`,
         "Content-Type": "application/json",
         Accept: "application/json"
