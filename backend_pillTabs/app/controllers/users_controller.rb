@@ -35,7 +35,7 @@ class UsersController < ApplicationController
           def update
             @user = User.find_by(id: params['id'])
             debugger
-            @user.update(answer1: params["user"]["answer1"], answer2: params["user"]["answer2"])
+            @user.update(answer1: params["answer1"], answer2: params["answer2"])
             # ,answer3: params["user"]["answer3"],answer4: params["user"]["answer4"],answer5: params["user"]["answer5"],answer6: params["user"]["answer6"],answer7: params["user"]["answer7"],answer8: params["user"]["answer8"] )
             # debugger
           end
