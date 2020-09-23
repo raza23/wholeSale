@@ -113,9 +113,7 @@ class App extends React.Component {
               exact
               path="/survey"
               render={() => {
-                return this.state.currentUser === null ? (
-                  <Redirect to="/survey" />
-                ) : (
+                return this.state.currentUser === null ? null : (
                   <Survey user={this.state.currentUser} />
                 );
               }}
