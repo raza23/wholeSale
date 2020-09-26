@@ -7,7 +7,7 @@ const Orders_URL = "http://localhost:3001/orders";
 class DrugDetail extends Component {
   state = {
     orders: this.props.orders,
-    order_type_cost: "0"
+    order_type_cost: "Select Order Type"
 
     // cost: parseInt(this.state.order_type_cost)
   };
@@ -47,6 +47,7 @@ class DrugDetail extends Component {
   };
 
   render() {
+    const orderSelection = this.state.order_type_cost;
     console.log(this.props);
     console.log(this.state);
     if (!this.props.drug) {
@@ -62,7 +63,7 @@ class DrugDetail extends Component {
         <p>{this.props.drug.name}</p>
         <ReactBootstrap.Dropdown>
           <ReactBootstrap.Dropdown.Toggle variant="success" id="dropdown-basic">
-            Order Type
+            {orderSelection}
           </ReactBootstrap.Dropdown.Toggle>
 
           <ReactBootstrap.Dropdown.Menu>
@@ -70,16 +71,21 @@ class DrugDetail extends Component {
               onClick={this.handleOrder}
               href="#/action-1"
             >
-              One Time for $5
+              One Time for $6
             </ReactBootstrap.Dropdown.Item>
-            <ReactBootstrap.Dropdown.Item href="#/action-2">
+            <ReactBootstrap.Dropdown.Item
+              onClick={this.handleOrder}
+              href="#/action-2"
+            >
               Subscription for $10
             </ReactBootstrap.Dropdown.Item>
           </ReactBootstrap.Dropdown.Menu>
         </ReactBootstrap.Dropdown>
-        <ReactBootstrap.Button onClick={this.makeOrder} variant="primary">
-          Confirm Order
-        </ReactBootstrap.Button>{" "}
+        {this.state.order_type_cost === "Select Order Type" ? null : (
+          <ReactBootstrap.Button onClick={this.makeOrder} variant="primary">
+            Confirm Order
+          </ReactBootstrap.Button>
+        )}
       </div>
     );
   }

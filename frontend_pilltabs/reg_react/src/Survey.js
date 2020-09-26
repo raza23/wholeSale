@@ -49,6 +49,15 @@ class Survey extends Component {
     // debugger;
     // * user isnt null, it just needs to wait for the user to fetch
     console.log(user);
+
+    if (!this.props.user) {
+      return (
+        <ReactBootstrap.Spinner animation="border" role="status">
+          <span className="sr-only">Loading...</span>
+        </ReactBootstrap.Spinner>
+      );
+    }
+
     return (
       <div>
         <>

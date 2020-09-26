@@ -115,11 +115,7 @@ class App extends React.Component {
             <Route
               exact
               path="/survey"
-              render={() => {
-                return this.state.currentUser === null ? null : (
-                  <Survey user={this.state.currentUser} />
-                );
-              }}
+              render={() => <Survey user={this.state.currentUser} />}
             />
             <Route
               exact
