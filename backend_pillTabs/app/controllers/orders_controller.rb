@@ -21,12 +21,12 @@ end
     render json: @order
   end
 
-# def create
-#     # byebug
-#     @order = Order.find_or_create_by(user_id: params["user"]["id"], oppurtunity_id: params["oppurtunity"]['id'], clockin: params[:clockin],clockout: params[:clockout])
-#     # byebug
-#     render json: @log
-# end
+def create
+    # byebug
+    @order = Order.find_or_create_by(user_id: params["user"]["id"], drug_id: params["drug"]['id'], cost: params[:cost],order_type: params[:order_type])
+    # byebug
+    render json: @order
+end
 
 private
 def set_order
