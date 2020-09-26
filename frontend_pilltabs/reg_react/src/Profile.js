@@ -38,6 +38,8 @@ class Profile extends Component {
             <p>My Orders</p>
             <ul>{indOrders}</ul>
             <Link to="/survey">My survey</Link>
+            <p></p>
+            <Link to="/alldrugs">Make Order</Link>
           </ul>
           <div></div>
         </div>

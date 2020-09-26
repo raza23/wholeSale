@@ -12,6 +12,8 @@ import Login from "./Login";
 import Profile from "./Profile";
 import DoctorProfile from "./DoctorProfile";
 import Survey from "./Survey";
+import DrugList from "./DrugList";
+import DrugDetail from "./DrugDetail";
 
 import "./App.css";
 
@@ -26,13 +28,13 @@ class App extends React.Component {
     drugs: []
   };
 
-  async componentDidMount() {
+  componentDidMount() {
     let token = localStorage.getItem("jwt");
     // console.log(token);
 
     if (token) {
       // debugger;
-      await Promise.all([
+      Promise.all([
         // fetch(opp_url),
         fetch(DRUGS_URL),
         fetch(ORDERS_URL),
@@ -65,6 +67,7 @@ class App extends React.Component {
 
   render() {
     console.log(this.state.currentUser);
+    let allDrugs = [...this.state.drugs];
     // const doctor = this.state.currentUser.category_id === "3";
     // console.log(doctor);
     return (
@@ -115,6 +118,37 @@ class App extends React.Component {
               render={() => {
                 return this.state.currentUser === null ? null : (
                   <Survey user={this.state.currentUser} />
+                );
+              }}
+            />
+            <Route
+              exact
+              path="/alldrugs"
+              render={() => {
+                return this.state.currentUser === null &&
+                  this.state.drugs === null ? null : (
+                  <DrugList
+                    user={this.state.currentUser}
+                    drugs={this.state.drugs}
+                  />
+                );
+              }}
+            />
+            <Route
+              path="/alldrugs/:drugId"
+              render={props => {
+                let selectedDrug = allDrugs.find(
+                  drug => drug.id == props.match.params.drugId
+                );
+
+                // debugger
+                return this.state.currentUser === null &&
+                  this.state.drugs === null ? null : (
+                  <DrugDetail
+                    orders={this.state.orders}
+                    drug={selectedDrug}
+                    user={this.state.currentUser}
+                  />
                 );
               }}
             />
