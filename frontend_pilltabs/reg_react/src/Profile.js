@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { withRouter, Link } from "react-router-dom";
 import OrderItem from "./OrderItem";
 import DoctorProfile from "./DoctorProfile";
+import * as ReactBootstrap from "react-bootstrap";
+
 import Survey from "./Survey";
 
 class Profile extends Component {

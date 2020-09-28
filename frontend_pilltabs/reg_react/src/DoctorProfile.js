@@ -1,4 +1,5 @@
 import React from "react";
+import { withRouter, Link } from "react-router-dom";
 
 class DoctorProfile extends React.Component {
   render() {
@@ -6,9 +7,10 @@ class DoctorProfile extends React.Component {
     return (
       <div>
         <h1>Doctor</h1>
+        <Link to="/verifyOrders">Verify Orders</Link>
       </div>
     );
   }
 }
 
-export default DoctorProfile;
+export default withRouter(DoctorProfile);

@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2020_09_10_193353) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "category_type"
+    t.string "category_type", default: "Patient"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2020_09_10_193353) do
     t.string "user_id"
     t.string "drug_id"
     t.integer "cost"
+    t.string "confirmed", default: "Pending"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

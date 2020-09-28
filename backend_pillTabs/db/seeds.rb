@@ -19,5 +19,5 @@ drug2 = Drug.create(name: 'Tylenol')
 
 
 
-order1 = Order.create(order_type: 'One-Time',user: user1,drug: drug1,cost: 5)
+order1 = Order.create(order_type: 'One-Time',user: user1,drug: drug1,cost: 5,confirmed: "Yes")
 order2 = Order.create(order_type: 'Subscription',user: user1,drug: drug2,cost: 10)
