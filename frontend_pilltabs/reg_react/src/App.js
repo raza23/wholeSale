@@ -6,6 +6,7 @@ import {
   withRouter,
   Redirect
 } from "react-router-dom";
+import * as ReactBootstrap from "react-bootstrap";
 
 import Navbar from "./NavBar";
 import Login from "./Login";
@@ -14,6 +15,7 @@ import DoctorProfile from "./DoctorProfile";
 import Survey from "./Survey";
 import DrugList from "./DrugList";
 import DrugDetail from "./DrugDetail";
+import VerifyOrders from "./VerifyOrder";
 
 import "./App.css";
 
@@ -68,6 +70,13 @@ class App extends React.Component {
   render() {
     console.log(this.state.currentUser);
     let allDrugs = [...this.state.drugs];
+    if (!this.state.currentUser) {
+      return (
+        <ReactBootstrap.Spinner animation="border" role="status">
+          <span className="sr-only">Loading...</span>
+        </ReactBootstrap.Spinner>
+      );
+    }
     // const doctor = this.state.currentUser.category_id === "3";
     // console.log(doctor);
     return (
@@ -109,7 +118,12 @@ class App extends React.Component {
             <Route
               exact
               path="/doctorprofile"
-              render={() => <DoctorProfile user={this.state.currentUser} />}
+              render={() => (
+                <DoctorProfile
+                  user={this.state.currentUser}
+                  orders={this.state.orders}
+                />
+              )}
             />
 
             <Route
@@ -117,6 +131,21 @@ class App extends React.Component {
               path="/survey"
               render={() => <Survey user={this.state.currentUser} />}
             />
+            <Route
+              exact
+              path="/verifyOrders"
+              render={() => {
+                return this.state.currentUser.category_id === "3" ? (
+                  <VerifyOrders
+                    doctor={this.state.currentUser}
+                    orders={this.state.orders}
+                  />
+                ) : (
+                  <Redirect to="/profile" />
+                );
+              }}
+            />
+
             <Route
               exact
               path="/alldrugs"
