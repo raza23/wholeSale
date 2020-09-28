@@ -6,11 +6,12 @@ class OrdersController < ApplicationController
     render json: @orders, include: [:user,:drug]
 end
 
-# def update
-#     # byebug
-#     @log.update( clockin: params["log"]["clockin"],clockout: params["log"]["clockout"])
-#     render json: @log, status: 200
-#   end
+def update
+    # byebug
+    @order = Order.find_by(id: params['id'])
+    @order.update( confirmed: params["order"])
+    render json: @order, status: 200
+  end
 
   def destroy
     

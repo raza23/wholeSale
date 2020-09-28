@@ -5,6 +5,7 @@ class CreateOrders < ActiveRecord::Migration[6.0]
       t.string :user_id
       t.string :drug_id
       t.integer :cost
+      t.string :confirmed, :default => "Pending"
 
       t.timestamps
     end
