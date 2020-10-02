@@ -30,17 +30,17 @@ export default class DoctorOrderItem extends Component {
         console.log(err);
       });
     console.log(JSON.stringify(order));
-    debugger;
+    // debugger;
   };
 
-  handleOrders = e => {
-    console.log("hey");
-    this.setState(state => ({
-      edit: !state.edit
-      //*   e.currentTarget.innerText
-    }));
-    debugger;
-  };
+  //   handleOrders = e => {
+  //     console.log("hey");
+  //     this.setState(state => ({
+  //       edit: !state.edit
+  //       //*   e.currentTarget.innerText
+  //     }));
+  //     debugger;
+  //   };
 
   render() {
     console.log(this.props);
