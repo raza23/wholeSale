@@ -9,7 +9,7 @@ import {
 import * as ReactBootstrap from "react-bootstrap";
 
 import Navbar from "./NavBar";
-import Login from "./Login";
+import Login from "./login";
 import Profile from "./Profile";
 import DoctorProfile from "./DoctorProfile";
 import Survey from "./Survey";
